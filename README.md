@@ -14,3 +14,7 @@ To make it work, is necessary some environment variables:
 - PG_DB: the name of the database
 - PG_USER: the user to connect to the database
 - PG_PASS: the pass of the user of the database
+
+## DATABASE
+
+This module works with a PostgreSQL database. The initial script to create the necesary objects is located in ./sql/initial.sql
