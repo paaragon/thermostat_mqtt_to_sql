@@ -18,3 +18,7 @@ To make it work, is necessary some environment variables:
 ## DATABASE
 
 This module works with a PostgreSQL database. The initial script to create the necesary objects is located in ./sql/initial.sql
+
+## BUILD AND RUN
+
+Check out the Makefile in this repo wich contains the necesary scripts to build and run the app.
