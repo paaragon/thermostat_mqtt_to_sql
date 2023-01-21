@@ -1,15 +1,16 @@
+from logger import logging as log
 import db
 import json
 
 
 def handle_startup(station_id, msg):
-    print("handle_startup")
+    log.info("handle_startup")
     db.save_startup(station_id, msg)
 
 
 def handle_read(station_id, msg):
+    log.info("handle_read " + fixed_quotes)
     fixed_quotes = msg.replace("'", "\"")
-    print("handle_read " + fixed_quotes)
     read_info = json.loads(fixed_quotes)
     temperature = read_info["temp"]
     humidity = read_info["hum"]
@@ -17,15 +18,15 @@ def handle_read(station_id, msg):
 
 
 def handle_status(msg):
-    print("handle_status")
+    log.info("handle_status")
     db.save_status(int(msg))
 
 
 def handle_mode(msg):
-    print("handle_mode")
+    log.info("handle_mode")
     db.save_mode(msg)
 
 
 def handle_set(client_id, msg):
-    print("handle_set")
+    log.info("handle_set")
     db.save_set(client_id, int(msg))

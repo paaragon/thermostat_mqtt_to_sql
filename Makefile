@@ -59,4 +59,4 @@ docker-run:
 
 run:						## Runs the python
 	$(call setup_env)
-	python3 ./main.py
+	python3 ./src/main.py
