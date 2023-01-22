@@ -9,7 +9,7 @@ def handle_startup(station_id, msg):
 
 
 def handle_read(station_id, msg):
-    log.info("handle_read " + fixed_quotes)
+    log.info("handle_read")
     fixed_quotes = msg.replace("'", "\"")
     read_info = json.loads(fixed_quotes)
     temperature = read_info["temp"]
