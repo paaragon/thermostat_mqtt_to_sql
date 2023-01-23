@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-from logger import logging as log
+from logger import logger as log
 import paho.mqtt.client as mqtt
 import handle_messages
 
