@@ -56,7 +56,7 @@ docker-publish:            ## Publish the docker image to registry.
 	docker push $(DOCKER_REGISTRY_URL)/$(CONTAINER_NAME):$(VERSION)
 
 docker-build-arm:              ## Build the ARM docker image.
-	docker build -t $(CONTAINER_NAME_ARM):$(VERSION) .
+	docker buildx build -t $(CONTAINER_NAME_ARM):$(VERSION) . --platform linux/amd64,linux/arm64,linux/ppc64le
 
 docker-publish-arm:            ## Publish the ARM docker image to registry.
 	docker tag $(CONTAINER_NAME_ARM):$(VERSION) $(DOCKER_REGISTRY_URL)/$(CONTAINER_NAME_ARM):$(VERSION)
