@@ -32,7 +32,7 @@ def on_message(client, userdata, msg):
             station_id = topic_tokens[2]
             handle_messages.handle_startup(station_id, payload)
         else:
-            log.warn("unknown method " + method)
+            log.warning("unknown method " + method)
         log.info("Handle OK")
     except Exception as e:
         log.error("Handle KO")

@@ -1,4 +1,5 @@
 CONTAINER_NAME=thermostat_mqtt_to_sql
+CONTAINER_NAME_ARM=thermostat_mqtt_to_sql_arm
 DOCKER_REGISTRY_URL=paaragon
 VERSION:=$(shell ./semver get-git-version)
 
@@ -53,6 +54,13 @@ docker-build:              ## Build the docker image.
 docker-publish:            ## Publish the docker image to registry.
 	docker tag $(CONTAINER_NAME):$(VERSION) $(DOCKER_REGISTRY_URL)/$(CONTAINER_NAME):$(VERSION)
 	docker push $(DOCKER_REGISTRY_URL)/$(CONTAINER_NAME):$(VERSION)
+
+docker-build-arm:              ## Build the ARM docker image.
+	docker build -t $(CONTAINER_NAME_ARM):$(VERSION) .
+
+docker-publish-arm:            ## Publish the ARM docker image to registry.
+	docker tag $(CONTAINER_NAME_ARM):$(VERSION) $(DOCKER_REGISTRY_URL)/$(CONTAINER_NAME_ARM):$(VERSION)
+	docker push $(DOCKER_REGISTRY_URL)/$(CONTAINER_NAME_ARM):$(VERSION)
 
 docker-run:
 	docker run -it --rm --name=$(CONTAINER_NAME) --env-file .env $(CONTAINER_NAME):$(VERSION)
